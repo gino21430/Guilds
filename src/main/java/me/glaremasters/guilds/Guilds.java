@@ -61,6 +61,7 @@ import me.glaremasters.guilds.listeners.EssentialsChatListener;
 import me.glaremasters.guilds.listeners.PlayerListener;
 import me.glaremasters.guilds.listeners.TicketListener;
 import me.glaremasters.guilds.listeners.VaultBlacklistListener;
+import me.glaremasters.guilds.listeners.VaultReturnPickerListener;
 import me.glaremasters.guilds.listeners.WorldGuardListener;
 import me.glaremasters.guilds.placeholders.PlaceholderAPI;
 import me.glaremasters.guilds.updater.UpdateChecker;
@@ -339,6 +340,7 @@ public final class Guilds extends JavaPlugin {
         new PlayerListener(guildHandler, settingsHandler.getSettingsManager(), this, permissions),
         new TicketListener(this, guildHandler, settingsHandler.getSettingsManager()),
         new VaultBlacklistListener(this, guildHandler, settingsHandler.getSettingsManager()),
+        new VaultReturnPickerListener(this, settingsHandler.getSettingsManager()),
         new ArenaListener(this, challengeHandler, settingsHandler.getSettingsManager()))
         .forEach(l -> Bukkit.getPluginManager().registerEvents(l, this));
     // Load the optional listeners
